@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/22 16:00:10 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:56:16 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int		main(void)
 	// Set SIGUSR2 to send back server status to the client
 	// so it knows what's going on (ready, busy, error, etc)
 
-	// Do the magic here
+	// Wait for an interrupt signal or whatever (might exist a better way to do this)
+	while (1)
+		;
 
 	ft_printf("%s\n", received);
 }
