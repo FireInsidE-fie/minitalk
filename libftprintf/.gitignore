@@ -1,0 +1,5 @@
+*.o
+*.a
+debug
+.DS_Store
+debug.dSYM
