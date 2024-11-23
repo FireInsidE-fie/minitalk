@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/23 16:55:25 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/23 23:15:26 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@ void	process_request(const int signum)
 	*/
 	(void)signum;
 	ft_printf("signal %d received!!\n", signum);
+	// In the end only use async safe functions like write to write the character
 }
 
 int		main(void)
 {
-	pid_t	pid;
-	char	*received;
+	sigset_t	*mask;
+	pid_t		pid;
 
+	mask = malloc(sizeof(sigset_t));
+	if (!mask)
+		return (-1);
+	sigemptyset(mask);
 	pid = getpid();
-	received = NULL;
 	ft_printf("[!] - Server PID : %d\n", pid);
 	signal(SIGUSR1, process_request);
 
