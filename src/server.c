@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/22 16:56:16 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:05:13 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	process_request(int signum)
 	*/
 	// Set received to the signal's value
 	(void)signum;
-	ft_printf("signal received!!\n");
+	ft_printf("signal %d received!!\n", signum);
 }
 
 int		main(void)
@@ -38,7 +38,7 @@ int		main(void)
 	// Set SIGUSR2 to send back server status to the client
 	// so it knows what's going on (ready, busy, error, etc)
 
-	// Wait for an interrupt signal or whatever (might exist a better way to do this)
+	// Wait for an interrupt signal or whatever (miiiiiight exist a better way to do this)
 	while (1)
 		;
 
