@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/26 18:06:10 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:08:20 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	send_char(char *pid, uint32_t character)
 	while (i >= 0)
 	{
 		if (((character >> i--) & 1) == 0 && ft_printf("0"))
-			kill(target,SIGUSR1);
+			kill(target, SIGUSR1);
 		else if (ft_printf("1"))
-			kill(target,SIGUSR2);
+			kill(target, SIGUSR2);
 		pause();
 	}
 	ft_printf("\n");
