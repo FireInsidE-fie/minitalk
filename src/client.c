@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/26 11:33:30 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/26 13:57:47 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ping_received(int signum)
 {
 	(void)signum;
-	ft_printf("Ping back received!!\n");
+	//ft_printf("Ping back received!!\n");
 }
 
 void	send_char(char *pid, uint32_t character)
@@ -33,7 +33,8 @@ void	send_char(char *pid, uint32_t character)
 		else if (ft_printf("1"))
 			kill(target,SIGUSR2);
 		i--;
-		usleep(1000);
+		pause();
+		//usleep(250); // server starts breaking around and below 200
 	}
 	ft_printf("\n");
 }
@@ -41,7 +42,6 @@ void	send_char(char *pid, uint32_t character)
 void	send_data(char *pid, char *data)
 {
 	//write(1, "[!] - Ping received! Beginning data transfer...\n", 48);
-	signal(SIGUSR1, ping_received);
 	while (*data)
 	{
 		send_char(pid, *data);
@@ -56,6 +56,7 @@ int	main(const int argc, char **argv)
 		ft_printf("Correct usage : ./client <server pid> <data to send>\n");
 		return (-1);
 	}
+	ft_printf("[!] - Client PID : %d\n", getpid());
 	signal(SIGUSR1, ping_received);
 	send_data(argv[1], argv[2]);
 	usleep(50000);
