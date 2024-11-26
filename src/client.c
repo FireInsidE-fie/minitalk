@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/26 18:08:20 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:18:22 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,26 @@ void	ping_received(int signum)
 	//ft_printf("Ping back received!!\n");
 }
 
-void	send_char(char *pid, uint32_t character)
+void	send_data(char *pid, char *data)
 {
 	int	i;
 	int	target;
 
-	i = 31;
-	target = ft_atoi(pid);
-	ft_printf("Sent : ");
-	while (i >= 0)
-	{
-		if (((character >> i--) & 1) == 0 && ft_printf("0"))
-			kill(target, SIGUSR1);
-		else if (ft_printf("1"))
-			kill(target, SIGUSR2);
-		pause();
-	}
-	ft_printf("\n");
-}
-
-void	send_data(char *pid, char *data)
-{
 	while (*data)
 	{
-		send_char(pid, *data);
+		i = 31;
+		target = ft_atoi(pid);
+		ft_printf("Sent : ");
+		while (i >= 0)
+		{
+			if (((*data >> i--) & 1) == 0 && ft_printf("0"))
+				kill(target, SIGUSR1);
+			else if (ft_printf("1"))
+				kill(target, SIGUSR2);
+			pause();
+		}
 		data++;
+		ft_printf("\n");
 	}
 }
 
