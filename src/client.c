@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/26 13:57:47 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:06:10 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,17 @@ void	send_char(char *pid, uint32_t character)
 	ft_printf("Sent : ");
 	while (i >= 0)
 	{
-		if (((character >> i) & 1) == 0 && ft_printf("0"))
+		if (((character >> i--) & 1) == 0 && ft_printf("0"))
 			kill(target,SIGUSR1);
 		else if (ft_printf("1"))
 			kill(target,SIGUSR2);
-		i--;
 		pause();
-		//usleep(250); // server starts breaking around and below 200
 	}
 	ft_printf("\n");
 }
 
 void	send_data(char *pid, char *data)
 {
-	//write(1, "[!] - Ping received! Beginning data transfer...\n", 48);
 	while (*data)
 	{
 		send_char(pid, *data);
