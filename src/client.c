@@ -6,11 +6,16 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/27 09:25:51 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:31:14 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
+
+void	handle_ping_back(int signum)
+{
+	(void)signum;
+}
 
 void	send_data(const char *pid, const char *data)
 {
@@ -44,6 +49,7 @@ int	main(const int argc, char **argv)
 		return (-1);
 	}
 	ft_printf("[!] - Client PID : %d\n", getpid());
+	signal(SIGUSR1, handle_ping_back);
 	send_data(argv[1], argv[2]);
 	usleep(50000);
 	return (0);

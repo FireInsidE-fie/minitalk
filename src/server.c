@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/27 09:26:31 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:27:46 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int32_t	g_character;
 
-static void	get_data(const int signum, const siginfo_t *info, const void *ptr)
+static void	get_data(int signum, siginfo_t *info, void *ptr)
 {
 	static int16_t	bit_counter;
 
