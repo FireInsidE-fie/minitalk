@@ -6,19 +6,13 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/27 09:04:33 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:25:51 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 
-void	ping_received(int signum)
-{
-	(void)signum;
-	//ft_printf("Ping back received!!\n");
-}
-
-void	send_data(char *pid, char *data)
+void	send_data(const char *pid, const char *data)
 {
 	int	i;
 	int	target;
@@ -50,7 +44,6 @@ int	main(const int argc, char **argv)
 		return (-1);
 	}
 	ft_printf("[!] - Client PID : %d\n", getpid());
-	signal(SIGUSR1, ping_received);
 	send_data(argv[1], argv[2]);
 	usleep(50000);
 	return (0);
