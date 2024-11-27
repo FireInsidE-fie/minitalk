@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/11/26 18:18:22 by estettle         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:04:33 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	send_data(char *pid, char *data)
 			else if (ft_printf("1"))
 				kill(target, SIGUSR2);
 			pause();
+			usleep(20);
 		}
 		data++;
 		ft_printf("\n");
