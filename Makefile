@@ -35,6 +35,7 @@ $(LIBFT):				$(LIBFTDIR)/*.c
 
 clean:
 						$(RM) $(RMFLAGS) $(OCLIENT) $(OCLIENT)
+						$(RM) $(RMFLAGS) $(OCLIENT_BONUS) $(OSERVER_BONUS)
 						cd $(LIBFTDIR) && make clean
 
 fclean:					clean
@@ -44,9 +45,14 @@ fclean:					clean
 re:						fclean all
 
 
-bonus:					$(OCLIENT_BONUS) $(OSERVER_BONUS) $(LIBFT)
-						$(CC) $(CFLAGS) $(OCLIENT_BONUS) $(LIBFT) -o $(CLIENT)
-						$(CC) $(CFLAGS) $(OSERVER_BONUS) $(LIBFT) -o $(SERVER)
+bonus:					client_bonus server_bonus $(LIBFT)
 
 
-.PHONY:					all clean fclean re bonus
+client_bonus:			$(OCLIENT_BONUS) $(LIBFT)
+						$(CC) $(CFLAGS) $^ -o client
+
+server_bonus:			$(OSERVER_BONUS) $(LIBFT)
+						$(CC) $(CFLAGS) $^ -o server
+
+
+.PHONY:					all clean fclean re bonus client_bonus server_bonus
