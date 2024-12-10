@@ -11,9 +11,7 @@ the pid to provide as first argument when calling the client executable.
 
 For this tiny "protocol", the two signals are used as direct 0 and 1 values,
 allowing for binary transmissions. SIGUSR2 represents a 1, SIGUSR1 a 0.
-
-Then the magic happens : The client starts by sending SIGUSR2 (1) to the server
-once for every byte the character that's going to be sent next takes up (this
-allows for multibyte characters). A full byte of 8 signals is thus transferred 
-and the client now knows what size of character to expect. Then the full
-character's binary representation is transmitted, and the cycle can start again.
+This way, we can directly translate ASCII characters into 8 bits to send
+with the two signals (32 bits for the bonus, slower but supports Unicode).
+The server then writes the complete byte to stdout and the next character
+is ready to be received.
