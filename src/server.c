@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2024/12/10 11:31:30 by estettle         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:25:11 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../include/minitalk.h"
 
-int32_t	g_character;
+int8_t	g_character;
 
 static void	get_data(int signum, siginfo_t *info, void *ptr)
 {
@@ -23,7 +23,7 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 	if (g_character < 0)
 	{
 		g_character = 0;
-		bit_counter = 31;
+		bit_counter = 7;
 	}
 	(void)ptr;
 	if (signum == SIGUSR1)
@@ -34,9 +34,9 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 	{
 		write(1, &g_character, 1);
 		g_character = 0;
-		bit_counter = 31;
+		bit_counter = 7;
 	}
-	usleep(25); // To adapt depending on the system
+	usleep(25);
 	kill(info->si_pid, SIGUSR1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:28:07 by estettle          #+#    #+#             */
-/*   Updated: 2024/12/10 11:30:52 by estettle         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:24:30 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	send_data(const char *pid, const char *data)
 
 	while (*data)
 	{
-		i = 31;
+		i = 7;
 		target = ft_atoi(pid);
 		while (i >= 0)
 		{
