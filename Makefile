@@ -1,5 +1,7 @@
 CLIENT			=		client
 SERVER			=		server
+CLIENT_BONUS	=		client_bonus
+SERVER_BONUS	=		server_bonus
 CC				=		cc
 CFLAGS			=		-Wall -Wextra -Werror
 RM				=		rm
@@ -21,10 +23,10 @@ LIBFT			=		$(LIBFTDIR)libftprintf.a
 all:					$(CLIENT) $(SERVER)
 
 
-$(CLIENT):				$(OCLIENT) $(LIBFT)
+$(CLIENT):				$(LIBFT) $(OCLIENT)
 						$(CC) $(CFLAGS) $^ -o $@
 
-$(SERVER):				$(OSERVER) $(LIBFT)
+$(SERVER):				$(LIBFT) $(OSERVER)
 						$(CC) $(CFLAGS) $^ -o $@
 
 %.o:					%.c
@@ -34,25 +36,22 @@ $(LIBFT):				$(LIBFTDIR)/*.c
 						cd $(LIBFTDIR) && make
 
 clean:
-						$(RM) $(RMFLAGS) $(OCLIENT) $(OCLIENT)
+						$(RM) $(RMFLAGS) $(OCLIENT) $(OSERVER)
 						$(RM) $(RMFLAGS) $(OCLIENT_BONUS) $(OSERVER_BONUS)
 						cd $(LIBFTDIR) && make clean
-
 fclean:					clean
 						$(RM) $(RMFLAGS) $(CLIENT) $(SERVER)
 						cd $(LIBFTDIR) && make fclean
-
 re:						fclean all
 
 
-bonus:					client_bonus server_bonus $(LIBFT)
+bonus:					$(CLIENT_BONUS) $(SERVER_BONUS)
 
 
-client_bonus:			$(OCLIENT_BONUS) $(LIBFT)
-						$(CC) $(CFLAGS) $^ -o client
+$(CLIENT_BONUS):		$(LIBFT) $(OCLIENT_BONUS)
+						$(CC) $(CFLAGS) $^ -o $@
 
-server_bonus:			$(OSERVER_BONUS) $(LIBFT)
-						$(CC) $(CFLAGS) $^ -o server
+$(SERVER_BONUS):		$(LIBFT) $(OSERVER_BONUS)
+						$(CC) $(CFLAGS) $^ -o $@
 
-
-.PHONY:					all clean fclean re bonus client_bonus server_bonus
+.PHONY:					all clean fclean re bonus
