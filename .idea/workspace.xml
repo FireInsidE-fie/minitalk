@@ -24,9 +24,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="958b6485-7cc1-4a73-a793-e1ecbb8aec67" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/server_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/server_bonus.c" afterDir="false" />
-    </list>
+    <list default="true" id="958b6485-7cc1-4a73-a793-e1ecbb8aec67" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,7 +229,7 @@
       <workItem from="1733920761821" duration="86000" />
       <workItem from="1733920881670" duration="1963000" />
       <workItem from="1733923181351" duration="539000" />
-      <workItem from="1736764541867" duration="5619000" />
+      <workItem from="1736764541867" duration="6561000" />
     </task>
     <servers />
   </component>
