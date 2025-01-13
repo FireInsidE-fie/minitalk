@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2025/01/13 12:39:03 by estettle         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:51:59 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 		write(1, &g_character, 1);
 		g_character = 0;
 		bit_counter = 31;
+		usleep(10);
 	}
 	usleep(50);
 	kill(info->si_pid, SIGUSR1);
