@@ -6,11 +6,9 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:48:45 by estettle          #+#    #+#             */
-/*   Updated: 2024/12/11 14:46:17 by estettle         ###   ########.fr       */
+/*   Updated: 2025/01/13 11:48:06 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 #include "../include/minitalk.h"
 
