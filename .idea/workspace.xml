@@ -25,13 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="958b6485-7cc1-4a73-a793-e1ecbb8aec67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_bonus.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/server_bonus.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +233,7 @@
       <workItem from="1733920761821" duration="86000" />
       <workItem from="1733920881670" duration="1963000" />
       <workItem from="1733923181351" duration="539000" />
-      <workItem from="1736764541867" duration="3553000" />
+      <workItem from="1736764541867" duration="5376000" />
     </task>
     <servers />
   </component>
