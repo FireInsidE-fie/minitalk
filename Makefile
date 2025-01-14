@@ -41,6 +41,7 @@ clean:
 						cd $(LIBFTDIR) && make clean
 fclean:					clean
 						$(RM) $(RMFLAGS) $(CLIENT) $(SERVER)
+						$(RM) $(RMFLAGS) $(CLIENT_BONUS) $(SERVER_BONUS)
 						cd $(LIBFTDIR) && make fclean
 re:						fclean all
 
