@@ -39,8 +39,8 @@ void	send_data(const char *pid, const char *data)
 				kill(target, SIGUSR1);
 			else
 				kill(target, SIGUSR2);
-			pause();
-			usleep(25);
+			sleep(1);
+			usleep(50);
 		}
 		data++;
 	}

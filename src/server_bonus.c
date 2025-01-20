@@ -24,6 +24,7 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 		bit_counter = 7;
 	}
 	(void)ptr;
+	(void)info;
 	if (signum == SIGUSR1)
 		g_character = (g_character << 1) | 0;
 	else
@@ -33,7 +34,6 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 		write(1, &g_character, 1);
 		g_character = 0;
 		bit_counter = 7;
-		usleep(10);
 	}
 	usleep(50);
 	kill(info->si_pid, SIGUSR1);
