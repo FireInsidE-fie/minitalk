@@ -14,7 +14,7 @@
 
 int8_t	g_character;
 
-static void	get_data(int signum, siginfo_t *info, void *ptr)
+static void	get_data(int signum)
 {
 	static int8_t	bit_counter;
 
@@ -23,7 +23,6 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 		g_character = 0;
 		bit_counter = 7;
 	}
-	(void)ptr;
 	if (signum == SIGUSR1)
 		g_character = (g_character << 1) | 0;
 	else
@@ -33,25 +32,15 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 		write(1, &g_character, 1);
 		g_character = 0;
 		bit_counter = 7;
-		usleep(10);
 	}
-	usleep(50);
-	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)
 {
-	struct sigaction	minitalk;
-	sigset_t			mask;
-
 	g_character = -1;
-	sigemptyset(&mask);
-	minitalk.sa_sigaction = get_data;
-	minitalk.sa_mask = mask;
-	minitalk.sa_flags = SA_SIGINFO;
 	ft_printf("[!] - Server PID : %d\n", getpid());
-	sigaction(SIGUSR1, &minitalk, NULL);
-	sigaction(SIGUSR2, &minitalk, NULL);
+	signal(SIGUSR1, get_data);
+	signal(SIGUSR2, get_data);
 	while (1)
 		sleep(1);
 }

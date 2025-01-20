@@ -12,11 +12,6 @@
 
 #include "../include/minitalk.h"
 
-void	handle_ping_back(int signum)
-{
-	(void)signum;
-}
-
 void	send_data(const char *pid, const char *data)
 {
 	int	i;
@@ -32,8 +27,7 @@ void	send_data(const char *pid, const char *data)
 				kill(target, SIGUSR1);
 			else
 				kill(target, SIGUSR2);
-			pause();
-			usleep(25);
+			usleep(100);
 		}
 		data++;
 	}
@@ -46,7 +40,7 @@ int	main(const int argc, char **argv)
 		ft_printf("Correct usage : ./client <server pid> <data to send>\n");
 		return (-1);
 	}
-	signal(SIGUSR1, handle_ping_back);
+	signal(SIGUSR1, SIG_IGN);
 	send_data(argv[1], argv[2]);
 	return (0);
 }
