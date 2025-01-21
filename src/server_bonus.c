@@ -24,7 +24,6 @@ static void	get_data(int signum, siginfo_t *info, void *ptr)
 		bit_counter = 7;
 	}
 	(void)ptr;
-	(void)info;
 	if (signum == SIGUSR1)
 		g_character = (g_character << 1) | 0;
 	else
